@@ -35,8 +35,8 @@ wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 2
-num_epochs: 4
+micro_batch_size: 10
+num_epochs: 10
 optimizer: paged_adamw_32bit
 lr_scheduler: cosine
 learning_rate: 0.0002
@@ -53,7 +53,7 @@ resume_from_checkpoint:
 local_rank:
 logging_steps: 1
 xformers_attention:
-flash_attention: true
+flash_attention: false
 
 warmup_steps: 10
 evals_per_epoch: 4
