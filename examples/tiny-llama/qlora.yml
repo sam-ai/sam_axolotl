@@ -8,14 +8,15 @@ load_in_4bit: true
 strict: false
 
 datasets:
-  - path: mhenrichsen/alpaca_2k_test
-    type: alpaca
+  - path: OdiaGenAI/all_combined_odia_171k
+    type: alpaca:chatml
 dataset_prepared_path:
-val_set_size: 0.05
+val_set_size: 0.10
 output_dir: ./qlora-out
 
 adapter: qlora
 lora_model_dir:
+hub_model_id: sam2ai/tiny-llama-odia
 
 sequence_len: 4096
 sample_packing: true
@@ -28,7 +29,7 @@ lora_target_modules:
 lora_target_linear: true
 lora_fan_in_fan_out:
 
-wandb_project:
+wandb_project: odia-tiny-llama
 wandb_entity:
 wandb_watch:
 wandb_name:
