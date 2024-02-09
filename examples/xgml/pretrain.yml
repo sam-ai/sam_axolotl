@@ -10,9 +10,8 @@ strict: false
 
 max_steps: 200
 pretraining_dataset:
-  path: uonlp/CulturaX
-  name: or
-  # type: completion
+  path: OdiaGenAIdata/culturax-odia
+  type: completion
 dataset_prepared_path:
 val_set_size: 0.01
 output_dir: ./xgml-model-out
