@@ -10,8 +10,8 @@ strict: false
 
 max_steps: 200
 pretraining_dataset:
-  path: OdiaGenAIdata/pre_train_odia_data
-  name: cultureax
+  path: uonlp/CulturaX
+  name: or
 dataset_prepared_path:
 val_set_size: 0.10
 output_dir: ./xgml-model-out
@@ -19,7 +19,7 @@ output_dir: ./xgml-model-out
 sequence_len: 4096
 sample_packing: true
 
-wandb_project: xgml_pretrain
+wandb_project: xgml_pretrain_odia
 wandb_entity:
 wandb_watch:
 wandb_name:
