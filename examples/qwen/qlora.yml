@@ -10,8 +10,8 @@ load_in_4bit: true
 strict: false
 
 datasets:
-  - path: OdiaGenAIdata/culturax-odia
-    type: completion
+  - path: OdiaGenAI/all_combined_odia_171k
+    type: alpaca:chatml
 dataset_prepared_path:
 val_set_size: 0.05
 output_dir: ./lora-out-qwen-4b-odia
