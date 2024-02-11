@@ -29,7 +29,7 @@ lora_dropout: 0.05
 lora_target_linear: true
 lora_fan_in_fan_out:
 
-wandb_project: Qwen-pretrain-odia
+wandb_project: Qwen-instruct-4b-odia
 wandb_entity:
 wandb_watch:
 wandb_name:
