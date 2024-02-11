@@ -1,4 +1,4 @@
-base_model: Qwen/Qwen-7B
+base_model: Qwen/Qwen1.5-4B
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
 
@@ -10,11 +10,12 @@ load_in_4bit: true
 strict: false
 
 datasets:
-  - path: mhenrichsen/alpaca_2k_test
-    type: alpaca
+  - path: OdiaGenAIdata/culturax-odia
+    type: completion
 dataset_prepared_path:
 val_set_size: 0.05
-output_dir: ./lora-out
+output_dir: ./lora-out-qwen-4b-odia
+hub_model_id: sam2ai/qwen_1.5_odia_4b
 
 sequence_len: 2048  # supports up to 8192
 sample_packing: false
@@ -22,20 +23,20 @@ pad_to_sequence_len:
 
 adapter: qlora
 lora_model_dir:
-lora_r: 32
-lora_alpha: 16
+lora_r: 64
+lora_alpha: 32
 lora_dropout: 0.05
 lora_target_linear: true
 lora_fan_in_fan_out:
 
-wandb_project:
+wandb_project: Qwen-pretrain-odia
 wandb_entity:
 wandb_watch:
 wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 2
+micro_batch_size: 12
 num_epochs: 4
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
