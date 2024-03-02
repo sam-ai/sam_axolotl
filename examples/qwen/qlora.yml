@@ -22,7 +22,7 @@ sample_packing: false
 pad_to_sequence_len:
 
 adapter: qlora
-lora_model_dir:
+lora_model_dir: ./lora-out-qwen-7b-odia-instruct
 lora_r: 32
 lora_alpha: 16
 lora_dropout: 0.05
