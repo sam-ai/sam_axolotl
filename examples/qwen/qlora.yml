@@ -17,7 +17,7 @@ val_set_size: 0.10
 output_dir: ./lora-out-qwen-7b-odia-instruct-v1
 hub_model_id: sam2ai/qwen_1.5_odia_7b-instruct
 
-sequence_len: 4096  # supports up to 8192
+sequence_len: 2048  # supports up to 8192
 sample_packing: false
 pad_to_sequence_len:
 
