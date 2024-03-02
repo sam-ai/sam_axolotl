@@ -21,8 +21,11 @@ sequence_len: 2048  # supports up to 8192
 sample_packing: false
 pad_to_sequence_len:
 
+resume_from_checkpoint: ./lora-out-qwen-7b-odia-instruct
+
 adapter: qlora
-lora_model_dir: ./lora-out-qwen-7b-odia-instruct
+# lora_model_dir: ./lora-out-qwen-7b-odia-instruct
+
 lora_r: 32
 lora_alpha: 16
 lora_dropout: 0.05
