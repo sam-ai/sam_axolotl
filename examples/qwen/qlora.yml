@@ -14,14 +14,14 @@ datasets:
     type: alpaca:chatml
 dataset_prepared_path:
 val_set_size: 0.10
-output_dir: ./lora-out-qwen-7b-odia-instruct
+output_dir: ./lora-out-qwen-7b-odia-instruct-v1
 hub_model_id: sam2ai/qwen_1.5_odia_7b-instruct
 
-sequence_len: 2048  # supports up to 8192
+sequence_len: 4096  # supports up to 8192
 sample_packing: false
 pad_to_sequence_len:
 
-resume_from_checkpoint: ./lora-out-qwen-7b-odia-instruct
+# resume_from_checkpoint: ./lora-out-qwen-7b-odia-instruct
 
 adapter: qlora
 # lora_model_dir: ./lora-out-qwen-7b-odia-instruct
@@ -32,7 +32,7 @@ lora_dropout: 0.05
 lora_target_linear: true
 lora_fan_in_fan_out:
 
-wandb_project: Qwen-instruct-7b-odia-instruct
+wandb_project: Qwen-instruct-7b-odia-instruct-v1
 wandb_entity:
 wandb_watch:
 wandb_name:
@@ -61,7 +61,7 @@ flash_attention:
 
 warmup_steps: 10
 evals_per_epoch: 4
-eval_table_size:
+eval_table_size: 10
 eval_table_max_new_tokens: 128
 saves_per_epoch: 1
 debug:
