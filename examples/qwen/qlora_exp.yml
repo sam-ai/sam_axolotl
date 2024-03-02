@@ -1,0 +1,102 @@
+base_model: Qwen/Qwen1.5-7B-Chat
+model_type: AutoModelForCausalLM
+tokenizer_type: LlamaTokenizer
+
+load_in_8bit: false
+load_in_4bit: true
+strict: false
+
+trust_remote_code: true
+
+
+chat_template: chatml
+datasets:
+  - path: manishiitg/chat-instruct-hi-v8-dedupe
+    type: completion
+  
+hub_model_id: manishiitg/open-aditi-chat-hi-1.8-qwen
+hf_use_auth_token: true
+
+wandb_project: open-aditi-chat-hi-1.8
+
+dataset_prepared_path: manishiitg
+push_dataset_to_hub: manishiitg
+val_set_size: 0
+output_dir: /sky-notebook/manishiitg/open-aditi-chat-hi-1.8-qwen
+
+adapter: qlora
+lora_model_dir:
+save_safetensors: true
+
+sequence_len: 4096
+sample_packing: true
+pad_to_sequence_len: true
+
+lora_r: 64
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_linear: true
+lora_fan_in_fan_out:
+lora_target_modules:
+  - gate_proj
+  - down_proj
+  - up_proj
+  - q_proj
+  - v_proj
+  - k_proj
+  - o_proj
+
+lora_modules_to_save:
+ - embed_tokens
+ - lm_head
+
+wandb_entity:
+wandb_watch:
+wandb_run_id:
+wandb_log_model:
+
+gradient_accumulation_steps: 4
+micro_batch_size: 7
+num_epochs: 3
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+adam_beta2: 0.95
+adam_epsilon: 0.00001
+max_grad_norm: 1.0
+
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: false
+
+
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+auto_resume_from_checkpoints: true ## manage check point resume from here
+local_rank:
+logging_steps: 1
+xformers_attention:
+flash_attention: true
+
+warmup_steps: 10
+eval_steps: 0
+eval_table_size:
+eval_table_max_new_tokens: 128
+save_steps: 20 ## increase based on your dataset
+save_strategy: steps
+debug:
+deepspeed:
+weight_decay: 0.0
+fsdp:
+fsdp_config:
+special_tokens:
+  bos_token: "<s>"
+  eos_token: "</s>"
+  unk_token: "<unk>"
+# tokens: # these are delimiters
+#   - "<|im_start|>"
+#   - "<|im_end|>"
