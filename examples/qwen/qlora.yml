@@ -25,6 +25,7 @@ pad_to_sequence_len:
 
 adapter: qlora
 # lora_model_dir: ./lora-out-qwen-7b-odia-instruct
+auto_resume_from_checkpoints: true
 
 lora_r: 32
 lora_alpha: 16
