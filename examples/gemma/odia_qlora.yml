@@ -12,7 +12,8 @@ datasets:
   - path: OdiaGenAIdata/culturax-odia
     type: completion
 val_set_size: 0.1
-output_dir: ./gemma-2b-pretrain
+output_dir: ./gemma-odia-2b-pretrain
+hub_model_id: sam2ai/gemma_odia_2b
 
 adapter: qlora
 lora_r: 32
@@ -24,7 +25,7 @@ sequence_len: 4096
 sample_packing: true
 pad_to_sequence_len: true
 
-wandb_project:
+wandb_project: gemma-completion-2b-odia
 wandb_entity:
 wandb_watch:
 wandb_name:
